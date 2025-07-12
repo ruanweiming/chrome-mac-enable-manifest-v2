@@ -1,7 +1,10 @@
 # macOS 下启用 Chrome Manifest V2 扩展支持
+本项目用于解决 macOS 上 Chrome 浏览器中部分扩展（如广告拦截器）被禁用的问题，原因是 Google 正在逐步淘汰 Manifest V2 扩展格式。
+
+## English Documentation
+
 If you prefer the English version, please click here:  
 [English Version](README.en.md)
-本项目用于解决 macOS 上 Chrome 浏览器中部分扩展（如广告拦截器）被禁用的问题，原因是 Google 正在逐步淘汰 Manifest V2 扩展格式。
 
 ## 🚨 问题现象
 
