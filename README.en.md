@@ -2,6 +2,11 @@
 
 This script enables support for **Manifest V2 Chrome extensions** (such as ad blockers like uBlock Origin) on macOS systems where Google has started phasing them out.
 
+## 中文说明
+
+如果你需要中文版，请点击这里：  
+[中文版](README.md)
+
 ## 🚨 Problem
 
 Google Chrome on macOS may show messages like:
