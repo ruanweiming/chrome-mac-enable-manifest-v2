@@ -1,6 +1,6 @@
 # Chrome Manifest V2 Extension Enabler for macOS
 
-This script enables support for **Manifest V2 Chrome extensions** (such as ad blockers like uBlock Origin) on macOS systems where Google has started phasing them out.
+This script enables support for **Manifest V2 Chrome extensions** (such as ad blockers like uBlock Origin) on macOS systems where Google has started phasing them out. On macOS Chrome version 138, the chrome://flags page does not include the flags chrome://flags/#extension-manifest-v2-deprecation-disabled and chrome://flags/#extension-manifest-v2-deprecation-unsupported. Therefore, this solution uses system managed preferences to bypass this limitation and enable Manifest V2 extensions.
 
 ## 中文说明
 
