@@ -1,0 +1,1 @@
+# chrome-mac-enable-manifest-v2
