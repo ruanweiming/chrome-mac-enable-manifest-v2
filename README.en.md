@@ -1,4 +1,4 @@
-# Chrome Manifest V2 Extension Enabler for macOS
+# Bypass Manifest V2 restrictions in Chrome 138+ on macOS
 
 This project addresses the issue of disabled Manifest V2 Chrome extensions on macOS due to deprecated support.
 
