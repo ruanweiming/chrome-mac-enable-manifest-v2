@@ -1,5 +1,4 @@
-# 恢复 Chrome macOS 138+ 中被禁用的扩展程序
-本项目解决了 macOS 上 Chrome 浏览器因 Manifest V2 扩展不再受支持而导致插件被禁用的问题。
+# 解决 macOS Chrome 此扩展程序不再受支持，因此已停用。
 
 在 macOS Chrome 138 版本中，chrome://flags 页面没有相关的 Manifest V2 弃用禁用选项，  
 因此本方案通过系统策略绕过限制，恢复对 Manifest V2 扩展的支持。
