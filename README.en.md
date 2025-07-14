@@ -1,9 +1,8 @@
-# Bypass Manifest V2 restrictions in Chrome 138+ on macOS
+# Fix for macOS Chrome: “This extension is no longer supported and has been disabled”
 
-This project addresses the issue of disabled Manifest V2 Chrome extensions on macOS due to deprecated support.
+In Chrome version 138 on macOS, the flag to disable the deprecation of Manifest V2 extensions has been removed from chrome://flags.
 
-On macOS Chrome version 138, the chrome://flags page lacks flags related to Manifest V2 deprecation disabling,  
-so this solution uses system managed preferences to bypass the limitation and restore Manifest V2 extension support.
+As a result, this workaround uses a system policy to bypass the restriction and re-enable support for Manifest V2 extensions.
 
 ## 中文说明
 
