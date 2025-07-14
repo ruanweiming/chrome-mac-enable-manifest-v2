@@ -37,24 +37,7 @@ sudo ./enable-chrome-v2.sh
 
 然后重启 Chrome 浏览器。
 
-## 🔁 恢复默认设置
-
-若想撤销此设置，运行：
-
-```bash
-sudo rm /Library/Managed\ Preferences/com.google.Chrome.plist
-```
-
-## 🧠 注意事项
-
-- 仅适用于 macOS 上的 Google Chrome，不支持 Chromium 或其他浏览器。
-- 在 macOS Ventura 和 Sonoma 上测试通过。
-
-## 📄 许可证
-
-MIT
-
-## 💡 小技巧：无需保存脚本文件
+## 或无需保存脚本文件
 
 如果你只是临时使用，也可以直接在终端粘贴以下内容，无需保存成 `.sh` 文件：
 
@@ -97,3 +80,21 @@ chrome://policy
 ```
 ExtensionManifestV2Availability = 2
 ```
+
+
+## 🔁 恢复默认设置
+
+若想撤销此设置，运行：
+
+```bash
+sudo rm /Library/Managed\ Preferences/com.google.Chrome.plist
+```
+
+## 🧠 注意事项
+
+- 仅适用于 macOS 上的 Google Chrome，不支持 Chromium 或其他浏览器。
+- 在 macOS Ventura 和 Sonoma 上测试通过。
+
+## 📄 许可证
+
+MIT
