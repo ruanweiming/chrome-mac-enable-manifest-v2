@@ -1,45 +1,30 @@
-# 解决 macOS Chrome 此扩展程序不再受支持，因此已停用。
+# 🛠 解决 macOS Chrome 报错：“此扩展程序不再受支持，因此已停用”
+# 🛠 Fix macOS Chrome Error: “This extension is no longer supported and has been disabled”
 
-在 macOS Chrome 138 版本中，chrome://flags 页面没有相关的 Manifest V2 弃用禁用选项，  
-因此本方案通过系统策略绕过限制，恢复对 Manifest V2 扩展的支持。
+---
 
-## English Documentation
+## 📌 问题背景 | Background
 
-If you prefer the English version, please click here:  
-[English Version](README.en.md)
+在 macOS 上运行旧版 Manifest V2 Chrome 扩展时，Chrome 可能会强制禁用扩展并提示：
 
-## 🚨 问题现象
+> **“此扩展程序不再受支持，因此已停用。”**  
+> _“This extension is no longer supported and has been disabled.”_
 
-你可能在 Chrome 中看到类似以下提示：
+### ❗关于 Chrome 138 版本的说明
 
-- “此扩展程序不再受支持，因此已停用。”
-- “这些扩展程序可能很快将不再受支持。”
+在 macOS 的 Chrome 138+ 版本中，**`chrome://flags` 页面已移除 Manifest V2 弃用相关设置项**（如 "Extensions Manifest V2 deprecation"），这意味着：
 
-这通常是因为该扩展仍基于 Manifest V2，而 Google 正在强制推广 Manifest V3。
+- **用户无法再通过 Flags 页面重新启用 Manifest V2；**
+- **只能通过系统级策略注入（如本项目提供的方式）来强制启用 Manifest V2 支持。**
 
-## ✅ 解决方案
+---
 
-使用 macOS 的 **受管理策略**（Managed Preferences），强制允许 Chrome 继续加载 Manifest V2 扩展。
+## ✅ 解决方案 | Solutions
 
-## 📦 主要操作
+### 🧩 方案一：终端执行命令（临时有效）
+### 🧩 Option 1: Terminal Command (Temporary Fix)
 
-脚本将会：
-
-- 向 `/Library/Managed Preferences/com.google.Chrome.plist` 写入配置文件
-- 设置键值 `ExtensionManifestV2Availability = 2`，允许加载所有 V2 扩展
-
-## 📋 使用方法
-
-```bash
-chmod +x enable-chrome-v2.sh
-sudo ./enable-chrome-v2.sh
-```
-
-然后重启 Chrome 浏览器。
-
-## 或无需保存脚本文件
-
-如果你只是临时使用，也可以直接在终端粘贴以下内容，无需保存成 `.sh` 文件：
+适合开发调试或短期使用，重启后失效。
 
 ```bash
 sudo bash <<'EOF'
@@ -68,33 +53,65 @@ echo "✅ Chrome Manifest V2 support enabled. Please restart Chrome."
 EOF
 ```
 
-## ✅ 如何验证是否生效
-
-打开 Chrome，输入地址：
-
-```
-chrome://policy
+```bash
+killall "Google Chrome"
+open -a "Google Chrome"
 ```
 
-点击“重新加载策略（Reload policies）”，确认是否出现：
+访问 `chrome://policy`，应看到：
+
 ```
-ExtensionManifestV2Availability = 2
+ExtensionManifestV2Availability    2    Platform
 ```
 
+⚠️ **此方法仅在当前会话中生效，重启 macOS 后失效。**
 
-## 🔁 恢复默认设置
+---
 
-若想撤销此设置，运行：
+### 🛡 方案二：安装配置描述文件（永久生效）
+### 🛡 Option 2: Install Configuration Profile (Permanent Fix)
+
+推荐用于长期使用或企业内管理环境。
+
+### 🛡 安装方式一：图形界面（推荐给普通用户）
+
+1. 双击文件：`chrome-manifestv2.mobileconfig`
+2. 系统会弹出“系统设置 > 描述文件”界面
+3. 点击“安装”并输入管理员密码
+4. 完成后退出并重新打开 Chrome，即可恢复 Manifest V2 支持
+
+### 🛡 安装方式二：命令行（开发者/运维推荐）
 
 ```bash
-sudo rm /Library/Managed\ Preferences/com.google.Chrome.plist
+sudo profiles install -type configuration -path ./profile/chrome-manifestv2.mobileconfig
 ```
 
-## 🧠 注意事项
+安装命令：
 
-- 仅适用于 macOS 上的 Google Chrome，不支持 Chromium 或其他浏览器。
-- 在 macOS Ventura 和 Sonoma 上测试通过。
+```bash
+sudo profiles install -type configuration -path ./profile/chrome-manifestv2.mobileconfig
+```
 
-## 📄 许可证
+```bash
+killall "Google Chrome"
+open -a "Google Chrome"
+```
 
-MIT
+访问 `chrome://policy` 页面，确认策略已应用。
+
+---
+
+## 🔄 可选：卸载配置文件 | Optional: Remove Profile
+
+```bash
+sudo profiles remove -identifier com.local.chrome.policies
+```
+
+---
+
+## 📁 项目结构 | Project Structure
+
+| 路径 | 描述 |
+|------|------|
+| `profile/chrome-manifestv2.mobileconfig` | 配置描述文件，永久方案使用 |
+| `README.md` | 项目说明与命令操作指南 |
