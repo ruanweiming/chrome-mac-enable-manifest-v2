@@ -50,7 +50,7 @@ open -a "Google Chrome"
 ---
 
 ## ✅ Option 2: Install Profile (Permanent)
-
+📥 [Download Configuration Profile (chrome-manifestv2.mobileconfig)](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
 1. Double-click `chrome-manifestv2.mobileconfig`
 2. Open System Settings > Profiles
 3. Click Install and enter your password
