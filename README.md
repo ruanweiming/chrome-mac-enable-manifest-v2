@@ -51,7 +51,7 @@ open -a "Google Chrome"
 ---
 
 ## ✅ 方法二：安装描述文件（永久有效）
-📥 [点击下载配置描述文件（chrome-manifestv2.mobileconfig）](./chrome-manifestv2.mobileconfig)
+📥 [点击下载配置描述文件（chrome-manifestv2.mobileconfig）](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
 1. 双击 `chrome-manifestv2.mobileconfig` 文件
 2. 进入“系统设置 > 描述文件”，点击安装并输入密码
 3. 重启 Chrome
