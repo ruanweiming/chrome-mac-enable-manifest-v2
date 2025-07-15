@@ -5,7 +5,7 @@
 Starting from Chrome 138 on macOS, the `chrome://flags` page no longer includes any toggle
 to re-enable Manifest V2 support.
 
-If you're seeing this error for older extensions:
+If you see the following message while using certain extensions like uBlock Origin:
 
 > This Extension Was Turned Off Because It's No Longer Supported.
 
