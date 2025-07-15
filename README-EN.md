@@ -1,5 +1,5 @@
 # 🛠 Fix macOS Chrome Error: “This extension is no longer supported and has been disabled”
-
+🔄 中文版说明请见：[README-中文.md](./README-中文.md)
 ## 📌 Background
 
 Starting from Chrome 138 on macOS, the `chrome://flags` page no longer includes any toggle
