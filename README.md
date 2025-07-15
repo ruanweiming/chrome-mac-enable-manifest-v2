@@ -1,4 +1,5 @@
 # 🛠 解决 macOS Chrome 报错：“此扩展程序不再受支持，因此已停用”
+🔄 For English version, see: [README-EN.md](./README-EN.md)
 
 ## 📌 背景说明
 
