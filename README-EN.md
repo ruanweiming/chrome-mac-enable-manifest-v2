@@ -7,7 +7,7 @@ to re-enable Manifest V2 support.
 
 If you're seeing this error for older extensions:
 
-> This extension is no longer supported and has been disabled.
+> This Extension Was Turned Off Because It's No Longer Supported.
 
 You can fix it using one of the two methods below.
 
