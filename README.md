@@ -1,10 +1,9 @@
-# 🛠 解决 macOS Chrome 插件 “此扩展程序不再受支持，因此已停用”
+# 🛠 解决 macOS Chrome 此扩展程序不再受支持（This extension is no longer supported）的问题
 🔄 For English version, see: [README-EN.md](./README-EN.md)
 
 ## 📌 背景说明
 
-从 Chrome 138 开始，macOS 上的 `chrome://flags` 页面已移除对 Manifest V2 的启用开关，
-用户无法再通过 Flags 恢复旧版扩展支持。
+从 Chrome 138 开始，macOS 上的 `chrome://flags` 页面已移除对 Manifest V2 的启用开关，用户无法再通过 Flags 恢复旧版扩展支持。在 Windows 下可以通过注册表恢复 Manifest V2 支持，详情见 [这里](https://www.nodeseek.com/post-390042-1)，但 macOS 没有注册表机制，只能通过描述文件（mobileconfig）或终端命令来启用。
 
 如果你在使用某些扩展（如 uBlock Origin）时看到以下提示:
 
