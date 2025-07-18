@@ -1,4 +1,4 @@
-# 🛠 Fix macOS Chrome Error: “This extension is no longer supported and has been disabled”
+# 🛠 Fix macOS Chrome This extension is no longer supported Error
 🔄 中文版说明请见：[README-中文.md](./README-中文.md)
 ## 📌 Background
 
