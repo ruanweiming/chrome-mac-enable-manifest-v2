@@ -19,13 +19,13 @@
 
 此方法已在 Chrome 139.0.7258.67（arm64）验证可用。
 
-1. 打开 [chrome://flags/#temporary-unexpire-flags-m137](chrome://flags/#temporary-unexpire-flags-m137) → **Enabled（启用）**
+1. 打开：`chrome://flags/#temporary-unexpire-flags-m137` → **Enabled（启用）**
 2. 重启 Chrome
 3. 依次进入并配置以下 Flags：
-   - [chrome://flags/#extension-manifest-v2-deprecation-warning](chrome://flags/#extension-manifest-v2-deprecation-warning) → **Disabled（禁用）**
-   - [chrome://flags/#extension-manifest-v2-deprecation-disabled](chrome://flags/#extension-manifest-v2-deprecation-disabled) → **Disabled（禁用）**
-   - [chrome://flags/#extension-manifest-v2-deprecation-unsupported](chrome://flags/#extension-manifest-v2-deprecation-unsupported) → **Disabled（禁用）**
-   - [chrome://flags/#allow-legacy-mv2-extensions](chrome://flags/#allow-legacy-mv2-extensions) → **Enabled（启用）**
+   - `chrome://flags/#extension-manifest-v2-deprecation-warning` → **Disabled（禁用）**
+   - `chrome://flags/#extension-manifest-v2-deprecation-disabled` → **Disabled（禁用）**
+   - `chrome://flags/#extension-manifest-v2-deprecation-unsupported` → **Disabled（禁用）**
+   - `chrome://flags/#allow-legacy-mv2-extensions` → **Enabled（启用）**
 4. 再次重启 Chrome
 
 ---
