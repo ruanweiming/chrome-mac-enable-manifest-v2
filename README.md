@@ -49,12 +49,25 @@ open -a "Google Chrome"
 
 ---
 
-## ✅ 方法二：安装描述文件（永久有效）
+## ✅ 方法二：安装描述文件
 📥 [点击下载配置描述文件（chrome-manifestv2.mobileconfig）](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
 1. 双击 `chrome-manifestv2.mobileconfig` 文件
 2. 进入“系统设置 > 描述文件”，点击安装并输入密码
 3. 重启 Chrome
 4. 打开 `chrome://policy`，应看到 `ExtensionManifestV2Availability = 2`
+
+## 🔄 补充方案（失效时可尝试）
+
+如果以上方法在新版本 Chrome 中失效，可以尝试以下步骤：
+
+1. 打开 `chrome://flags/#temporary-unexpire-flags-m137` → **Enabled（启用）**
+2. 重启 Chrome
+3. 依次进入并配置以下 Flags：
+   - `chrome://flags/#extension-manifest-v2-deprecation-warning` → **Disabled（禁用）**
+   - `chrome://flags/#extension-manifest-v2-deprecation-disabled` → **Disabled（禁用）**
+   - `chrome://flags/#extension-manifest-v2-deprecation-unsupported` → **Disabled（禁用）**
+   - `chrome://flags/#allow-legacy-mv2-extensions` → **Enabled（启用）**
+4. 再次重启 Chrome
 
 如需卸载描述文件：
 
