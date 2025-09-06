@@ -1,44 +1,39 @@
-# 🛠 Fixing macOS Chrome "This extension is no longer supported" Warning
-
-🔄 For Chinese version, see: `README.md`
+# 🛠 Fixing macOS Chrome "This extension was turned off because it's no longer supported" Prompt
 
 ------------------------------------------------------------------------
 
 ## 📌 Background
 
--   Starting with **Chrome 138**, the `chrome://flags` option to enable
-    Manifest V2 on macOS has been removed.\
--   On Windows, Manifest V2 support can be restored via Registry. macOS
-    doesn't have a registry, so you must use **configuration profiles
-    (mobileconfig)**, **terminal commands**, or **startup parameters**.\
--   If you see the following prompt when using certain extensions (like
+-   Starting from **Chrome 138**, macOS removed the flag in
+    `chrome://flags` that allowed enabling Manifest V2.\
+-   On Windows, Manifest V2 support can still be restored through the
+    Registry, but macOS has no such mechanism. Instead, you can use
+    **configuration profiles (mobileconfig)**, **terminal commands**, or
+    **startup parameters**.\
+-   If you see the following message when using extensions (e.g.,
     *uBlock Origin*):
 
-```{=html}
-<!-- -->
-```
+    This extension was turned off because it's no longer supported
 
-    This extension is no longer supported and has been disabled.
+Please note:
 
-Take note:
-
--   On **Chrome 140+**: Google completely removed V2 flags and policies.
-    The only working method is **Method 1 (startup
-    parameters/scripts)**.\
--   On **Chrome 138/139**: Historical methods (2 and 3) still work.
+-   On **Chrome 140+**: Google has completely removed V2 Flags and
+    Policy. The only working method is **Method 1 (startup
+    parameters/script)**.\
+-   On **Chrome 138/139**: legacy methods (2 and 3) still work.
 
 ------------------------------------------------------------------------
 
-## ✅ Method 1: Terminal Command & Script App (Works on Chrome 140+, Recommended)
+## ✅ Method 1: Terminal Command & Script App (For Chrome 140+, Recommended)
 
-**Option A: Directly via Terminal**\
-Run the following command in Terminal:
+**Option A: Direct terminal launch**\
+Run this in Terminal:
 
 ``` bash
 open -b com.google.Chrome --new --args --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled
 ```
 
-This launches Chrome with Manifest V2 extensions enabled.
+This starts Chrome with Manifest V2 support.
 
 ------------------------------------------------------------------------
 
@@ -49,12 +44,13 @@ Shortcut](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/
 
 Steps:
 
-1.  Download and unzip `Chrome V2.app` to your **Applications** folder\
-2.  Drag it into the Dock and launch directly with V2 support
+1.  Download and unzip `Chrome V2.app` into the **Applications** folder\
+2.  Drag it into your Dock, then simply click the icon to run Chrome
+    with V2 support
 
-**⚠️ If you see "App is damaged or incomplete"**
+**⚠️ First launch may show "Damaged or incomplete" warning**
 
-- Option 1: Right-click → Open → Still Open (only once)\
+- Option 1: Right-click → Open → Still Open (once only)\
 
 - Option 2: Run in Terminal:
 
@@ -62,7 +58,7 @@ Steps:
   xattr -d com.apple.quarantine "/Applications/Chrome V2.app"
   ```
 
-**Create your own Script App**
+**Create your own script app:**
 
 1. Open **Applications → Utilities → Script Editor**\
 
@@ -72,22 +68,27 @@ Steps:
    do shell script "open -b com.google.Chrome --new --args --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled"
    ```
 
-3. Save as Application, name it `Chrome V2`, and place in Applications\
+3. File → Save →
 
-4. Customize the icon if desired\
+   -   Name: `Chrome V2`\
+   -   Location: Applications\
+   -   File Format: Application
 
-5. Drag to Dock for quick launch
+4. In Finder, right-click `Chrome V2.app` → **Get Info** → Replace the
+   icon if desired\
+
+5. Drag `Chrome V2.app` into the Dock for quick access
 
 ------------------------------------------------------------------------
 
-## ⚠️ Method 2: Flags (Chrome 138/139 Only)
+## ⚠️ Method 2: Flags (For Chrome 138/139 Only)
 
 > Verified on Chrome 139.0.7258.67 (arm64). **Not available on Chrome
-> 140+**.
+> 140+.**
 
 1.  Open: `chrome://flags/#temporary-unexpire-flags-m137` → **Enabled**\
 2.  Restart Chrome\
-3.  Configure the following Flags:
+3.  Configure the following flags:
     -   `chrome://flags/#extension-manifest-v2-deprecation-warning` →
         **Disabled**\
     -   `chrome://flags/#extension-manifest-v2-deprecation-disabled` →
@@ -99,9 +100,9 @@ Steps:
 
 ------------------------------------------------------------------------
 
-## ⚠️ Method 3: Terminal Command (Legacy, Chrome 138/139)
+## ⚠️ Method 3: Terminal Command (Legacy, Chrome 138/139 Only)
 
-No longer works on Chrome 140+. Example:
+**Not valid on Chrome 140+**
 
 ``` bash
 sudo bash <<'EOF'
@@ -133,17 +134,19 @@ open -a "Google Chrome"
 
 ------------------------------------------------------------------------
 
-## ⚠️ Method 4: Profile (Legacy, Chrome 138/139)
+## ⚠️ Method 4: Configuration Profile (Legacy, Chrome 138/139 Only)
 
-Also removed in Chrome 140+.
+**Not valid on Chrome 140+**
 
-📥 [Download Configuration
-Profile](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
+📥 [Download mobileconfig
+profile](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
 
-1.  Double-click the `.mobileconfig` file\
-2.  Go to **System Settings → Profiles → Install**\
+Steps:
+
+1.  Double-click `chrome-manifestv2.mobileconfig`\
+2.  System Settings → Profiles → Install and enter password\
 3.  Restart Chrome\
-4.  Verify in `chrome://policy`:
+4.  Open `chrome://policy` → Check:
 
 ```{=html}
 <!-- -->
@@ -151,7 +154,7 @@ Profile](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/d
 
     ExtensionManifestV2Availability = 2
 
-**Uninstall profile**:
+**Uninstall profile:**
 
 ``` bash
 sudo profiles remove -identifier com.local.chrome.policies
@@ -161,8 +164,9 @@ sudo profiles remove -identifier com.local.chrome.policies
 
 ## 📌 Summary
 
--   **Chrome 140+**: Only Method 1 (Terminal/Shortcut) works\
--   **Chrome 138/139**: Methods 2--4 may still work\
--   **Shortcut app** is best for daily use (Dock launch with custom
-    icon)
+-   **Chrome 140+**: Use **Method 1 (Terminal or Shortcut App)**.\
+-   **Chrome 138/139**: Methods 2--4 still work, but not for newer
+    versions.\
+-   **Shortcut App** is best for daily use---can be pinned in Dock with
+    custom icon.
 
