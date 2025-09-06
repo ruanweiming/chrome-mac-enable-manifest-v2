@@ -149,6 +149,6 @@ sudo profiles remove -identifier com.local.chrome.policies
 
 ## 📌 总结
 
-- **Chrome 140+**：优先推荐 **终端命令** 或 **预制 App（方法一）**。  
+- **Chrome 140+**：优先推荐 **终端命令** 或 **快捷方式（方法一）**。  
 - **Chrome 138/139**：方法二、三、四可用，但已不适用于新版。  
-- **预制 App** 适合长期使用，可固定 Dock 并设置图标。  
+- **快捷方式** 适合长期使用，可固定 Dock 并设置图标。  
