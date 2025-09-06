@@ -128,7 +128,7 @@ open -a "Google Chrome"
 
 适用于 Chrome 138/139，**Chrome 140+ 已失效**
 
-📥 [下载配置描述文件]([https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/2.0/Chrome.V2.app.zip](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig))
+📥 [下载配置描述文件](https://github.com/ruanweiming/chrome-mac-enable-manifest-v2/releases/download/1.0/chrome-manifestv2.mobileconfig)
 
 1. 双击 `chrome-manifestv2.mobileconfig`  
 2. 系统设置 → 描述文件 → 安装并输入密码  
